@@ -1,17 +1,22 @@
-
 pipeline {
     agent any
 
     stages {
+        stage('Check Python') {
+            steps {
+                bat '"C:\\Users\\gopar\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe" --version'
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
-                bat '"C:\\Users\\gopar\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m pip install -r requirements.txt'
+                bat '"C:\\Users\\gopar\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe" -m pip install -r requirements.txt'
             }
         }
 
         stage('Run Tests') {
             steps {
-                bat '"C:\\Users\\gopar\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m pytest -v'
+                bat '"C:\\Users\\gopar\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe" -m pytest -v'
             }
         }
     }
