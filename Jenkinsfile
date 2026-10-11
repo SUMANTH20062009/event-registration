@@ -16,10 +16,10 @@ pipeline {
         }
 
         stage('Build Docker Image') {
-            steps {
-                bat 'docker build -t event-registration:1.0 .'
-            }
-        }
+    steps {
+        bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" build -t event-registration:1.0 .'
+    }
+}
 
         stage('Deploy to Kubernetes') {
             steps {
